@@ -32,7 +32,13 @@ brute_force_knapsack <- function(x, W, parallel=FALSE) {
   if (parallel == 'TRUE') { 
     
     # Check the number of cores on the computer
-    cores <- parallel::detectCores()
+    OS <- Sys.info()['sysname']
+    
+    if (OS == "Windows" | OS == "macOS" | OS == "Solaris") { 
+      cores <- parallel::detectCores(logical = FALSE) - 2
+    } else {
+      cores <- parallel::detectCores() - 2
+    }
     
     # set up cluster
     cluster <- makeCluster(cores, type = "PSOCK")
@@ -49,8 +55,6 @@ brute_force_knapsack <- function(x, W, parallel=FALSE) {
     # Shut down cluster
     stopCluster(cluster)
     
-    print(head(vTmp))
-    
   } else {
     
     N <- matrix(as.numeric(intToBits(1:N)), ncol = 32, byrow = TRUE)
@@ -64,10 +68,10 @@ brute_force_knapsack <- function(x, W, parallel=FALSE) {
 
   
   # choose the best possibility
-  vBest <- max(vTmp[which(wTmp <= W)])
-  elements <- elements[which(N[which(vTmp == vBest),] == 1)]
+  value <- max(vTmp[which(wTmp <= W)])
+  elements <- elements[which(N[which(vTmp == value),] == 1)]
   
-  result <- list(value=round(vBest), elements=elements)
+  result <- list(value=round(value), elements=elements)
 
   return(result) 
   
