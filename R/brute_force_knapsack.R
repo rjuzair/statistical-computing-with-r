@@ -34,7 +34,7 @@ brute_force_knapsack <- function(x, W, parallel=FALSE) {
     # Check the number of cores on the computer
     OS <- Sys.info()['sysname']
     
-    if (OS == "Windows" | OS == "macOS" | OS == "Solaris") { 
+    if (OS == "Windows" | OS == "Solaris") { 
       cores <- parallel::detectCores(logical = FALSE) - 2
     } else {
       cores <- parallel::detectCores() - 2
