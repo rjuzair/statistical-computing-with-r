@@ -3,7 +3,7 @@
 R packages and machine-learning reports from the MSc in Statistics and Machine Learning at **Linköping University** (Advanced R Programming and Machine Learning courses).
 
 ![R](https://img.shields.io/badge/R-276DC3?logo=r&logoColor=white)
-[![R-CMD-check](https://github.com/rjuzair/Lab04/actions/workflows/R-CMD-check.yml/badge.svg)](https://github.com/rjuzair/Lab04/actions/workflows/R-CMD-check.yml)
+[![R-CMD-check](https://github.com/rjuzair/statistical-computing-with-r/actions/workflows/R-CMD-check.yml/badge.svg)](https://github.com/rjuzair/statistical-computing-with-r/actions/workflows/R-CMD-check.yml)
 ![Shiny](https://img.shields.io/badge/Shiny-blue?logo=rstudio&logoColor=white)
 
 ## R packages
